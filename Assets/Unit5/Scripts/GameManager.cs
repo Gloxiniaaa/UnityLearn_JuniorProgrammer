@@ -10,6 +10,7 @@ namespace Assets.Unit5.Scripts
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private GameObject _gameTitlePannel;
         [SerializeField] private Button _restartBtn;
         [SerializeField] private TextMeshProUGUI _gameOverText;
         [SerializeField] private TextMeshProUGUI _scoreText;
@@ -18,27 +19,25 @@ namespace Assets.Unit5.Scripts
         [SerializeField] private float _spawnRate;
 
         private int _score = 0;
-        private bool _isGameActive = true;
+        private bool _isGameActive = false;
 
         void OnEnable()
         {
             Target.OnTargetClicked += HandleTargetClicked;
             _restartBtn.onClick.AddListener(RestartGame);
         }
+        void Start()
+        {
+            _restartBtn.gameObject.SetActive(false);
+            _gameOverText.gameObject.SetActive(false);
+            _score = 0;
+            _scoreText.text = "Score: 0";
+        }
 
         void OnDisable()
         {
             Target.OnTargetClicked -= HandleTargetClicked;
             _restartBtn.onClick.RemoveListener(RestartGame);
-        }
-
-        private void Start()
-        {
-            _restartBtn.gameObject.SetActive(false);
-            _gameOverText.gameObject.SetActive(false);
-            StartCoroutine(SpawnTarget());
-            _score = 0;
-            _scoreText.text = "Score: 0";
         }
 
         void Update()
@@ -55,6 +54,16 @@ namespace Assets.Unit5.Scripts
                     }
                 }
             }
+        }
+
+        public void StartGame(int difficulty)
+        {
+            _gameTitlePannel.SetActive(false);
+            _spawnRate = 1.5f / difficulty;
+            _score = 0;
+            _scoreText.text = "Score: 0";
+            _isGameActive = true;
+            StartCoroutine(SpawnTarget());
         }
 
         private void HandleTargetClicked(int arg0)
