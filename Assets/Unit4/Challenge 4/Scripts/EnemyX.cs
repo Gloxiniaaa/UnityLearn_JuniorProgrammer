@@ -12,6 +12,7 @@ namespace Assets.Unit4.Challenge4.Scripts
         void Start()
         {
             enemyRb = GetComponent<Rigidbody>();
+            playerGoal = GameObject.Find("Player Goal");
         }
 
         // Update is called once per frame

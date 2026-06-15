@@ -5,7 +5,7 @@ namespace Assets.Unit4.Challenge4.Scripts
 {
     public class SpawnManagerX : MonoBehaviour
     {
-        public GameObject enemyPrefab;
+        public EnemyX enemyPrefab;
         public GameObject powerupPrefab;
 
         private float spawnRangeX = 10;
@@ -14,6 +14,7 @@ namespace Assets.Unit4.Challenge4.Scripts
 
         public int enemyCount;
         public int waveCount = 1;
+        public float currentEnemySpeed = 1;
 
 
         public GameObject player;
@@ -21,11 +22,13 @@ namespace Assets.Unit4.Challenge4.Scripts
         // Update is called once per frame
         void Update()
         {
-            enemyCount = GameObject.FindGameObjectsWithTag("Powerup").Length;
+            enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
             if (enemyCount == 0)
             {
                 SpawnEnemyWave(waveCount);
+                currentEnemySpeed++;
+                waveCount++;
             }
 
         }
@@ -42,7 +45,6 @@ namespace Assets.Unit4.Challenge4.Scripts
         void SpawnEnemyWave(int enemiesToSpawn)
         {
             Vector3 powerupSpawnOffset = new Vector3(0, 0, -15); // make powerups spawn at player end
-
             // If no powerups remain, spawn a powerup
             if (GameObject.FindGameObjectsWithTag("Powerup").Length == 0) // check that there are zero powerups
             {
@@ -50,12 +52,12 @@ namespace Assets.Unit4.Challenge4.Scripts
             }
 
             // Spawn number of enemy balls based on wave number
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < enemiesToSpawn; i++)
             {
-                Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+                EnemyX e = Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+                e.speed = currentEnemySpeed;
             }
 
-            waveCount++;
             ResetPlayerPosition(); // put player back at start
 
         }
@@ -66,8 +68,6 @@ namespace Assets.Unit4.Challenge4.Scripts
             player.transform.position = new Vector3(0, 1, -7);
             player.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             player.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-
         }
-
     }
 }
