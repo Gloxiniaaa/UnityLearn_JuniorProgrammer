@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectCollisionsX : MonoBehaviour
+namespace Assets.Unit2.Challenge2.Scripts
 {
-
-    private void OnTriggerEnter(Collider other)
+    public class DetectCollisionsX : MonoBehaviour
     {
-        Destroy(gameObject);
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Destroy(gameObject);
+        }
     }
 }
