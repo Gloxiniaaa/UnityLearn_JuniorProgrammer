@@ -14,7 +14,7 @@ namespace Assets.Unit4.Challenge4.Scripts
 
         public int enemyCount;
         public int waveCount = 1;
-        public float currentEnemySpeed = 1;
+        public float currentEnemySpeed = 5;
 
 
         public GameObject player;
@@ -27,7 +27,7 @@ namespace Assets.Unit4.Challenge4.Scripts
             if (enemyCount == 0)
             {
                 SpawnEnemyWave(waveCount);
-                currentEnemySpeed++;
+                currentEnemySpeed += 5;
                 waveCount++;
             }
 
