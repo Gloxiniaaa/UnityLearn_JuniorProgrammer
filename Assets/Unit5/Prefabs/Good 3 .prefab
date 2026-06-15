@@ -118,7 +118,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!135 &390822235566616220
 SphereCollider:
@@ -139,7 +139,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15
+  m_Radius: 0.13
   m_Center: {x: 0, y: 0.10699875, z: -0.000000037252903}
 --- !u!114 &1464025172690602100
 MonoBehaviour:
@@ -153,8 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e60843b00b81c439aa0fd3c1a7c2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Target
+  _explosionVfx: {fileID: 6601538019107920666, guid: 70a1428e5f80a4866a779ef1ab9fe521, type: 3}
+  _pointValue: 10
   _minSpeed: 12
   _maxSpeed: 16
-  _maxTorque: 5
+  _maxTorque: 3
   _xRange: 4
   _ySpawnPos: -1

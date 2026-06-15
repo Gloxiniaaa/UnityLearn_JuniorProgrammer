@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Unit5.Scripts
 {
     public class Target : MonoBehaviour, ITarget
     {
+        [SerializeField] private ParticleSystem _explosionVfx;
+        [SerializeField] private int _pointValue;
         [SerializeField] private float _minSpeed = 12;
         [SerializeField] private float _maxSpeed = 16;
         [SerializeField] private float _maxTorque = 10;
         [SerializeField] private float _xRange = 4;
         [SerializeField] private float _ySpawnPos = -6;
+        public static event UnityAction<int> OnTargetClicked = delegate { };
 
 
         private Rigidbody _rb;
@@ -34,6 +38,8 @@ namespace Assets.Unit5.Scripts
 
         public void OnClick()
         {
+            OnTargetClicked.Invoke(_pointValue);
+            Instantiate(_explosionVfx, transform.position, _explosionVfx.transform.rotation);
             Destroy(gameObject);
         }
 
