@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+namespace Assets.Unit1.Scripts
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private Vector3 _offset = new Vector3(0, 5, -7);
-    void LateUpdate()
+    public class FollowPlayer : MonoBehaviour
     {
-        transform.position = _target.position + _offset;
+        [SerializeField] private Transform _target;
+        [SerializeField] private Vector3 _offset = new Vector3(0, 5, -7);
+        void LateUpdate()
+        {
+            transform.position = _target.position + _offset;
+        }
     }
 }

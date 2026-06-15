@@ -1,10 +1,12 @@
 using UnityEngine;
-
-public class Propeller : MonoBehaviour
+namespace Assets.Unit1.Challenge1.Scripts
 {
-    [SerializeField] private float _rotSpeed;
-    void Update()
+    public class Propeller : MonoBehaviour
     {
-        transform.Rotate(transform.forward, _rotSpeed * Time.deltaTime);
+        [SerializeField] private float _rotSpeed;
+        void Update()
+        {
+            transform.Rotate(transform.forward, _rotSpeed * Time.deltaTime);
+        }
     }
 }
