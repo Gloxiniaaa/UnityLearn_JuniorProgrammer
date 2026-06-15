@@ -155,6 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Target
   _minSpeed: 12
   _maxSpeed: 16
-  _maxTorque: 10
+  _maxTorque: 5
   _xRange: 4
-  _ySpawnPos: -6
+  _ySpawnPos: -1

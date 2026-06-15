@@ -20,9 +20,9 @@ namespace Assets.Unit5.Scripts
 
         void Start()
         {
-            transform.position = new Vector3(Random.Range(-4, 4), 6);
-            _rb.AddForce(Vector3.up * Random.Range(10, 16), ForceMode.Impulse);
-            _rb.AddTorque(Random.Range(-10, 16), Random.Range(-10, 16), Random.Range(10, 16), ForceMode.Impulse);
+            transform.position = RandomSpawnPos();
+            _rb.AddForce(RandomForce(), ForceMode.Impulse);
+            _rb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         }
         private void OnTriggerEnter(Collider other)
         {
