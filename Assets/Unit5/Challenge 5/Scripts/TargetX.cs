@@ -28,7 +28,7 @@ namespace Assets.Unit5.Challenge5.Scripts
         }
 
         // When target is clicked, destroy it, update score, and generate explosion
-        private void OnMouseEnter()
+        private void OnMouseDown()
         {
             if (gameManagerX.isGameActive)
             {

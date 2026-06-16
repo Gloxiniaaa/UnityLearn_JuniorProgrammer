@@ -23,7 +23,7 @@ namespace Assets.Unit5.Challenge5.Scripts
         void SetDifficulty()
         {
             Debug.Log(button.gameObject.name + " was clicked");
-            gameManagerX.StartGame();
+            gameManagerX.StartGame(difficulty);
         }
     }
 }
