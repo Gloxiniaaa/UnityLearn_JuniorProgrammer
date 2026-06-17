@@ -1,23 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Counter : MonoBehaviour
+namespace Assets.Unit10.Counter
 {
-    public Text CounterText;
-
-    private int count = 0;
-
-    private void Start()
+    [SelectionBase]
+    public class Counter : MonoBehaviour
     {
-        count = 0;
-    }
+        public Text CounterText;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        count += 1;
-        CounterText.text = "Count : " + count;
+        private int count = 0;
+
+        private void Start()
+        {
+            count = 0;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            count += 1;
+            CounterText.text = "Count : " + count;
+        }
     }
 }
