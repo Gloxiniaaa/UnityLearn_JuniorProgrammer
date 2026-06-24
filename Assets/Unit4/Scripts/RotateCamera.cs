@@ -16,6 +16,10 @@ namespace Assets.Unit4.Scripts
         {
             _controls.Player.Enable();
         }
+        void OnDisable()
+        {
+            _controls.Player.Disable();
+        }
 
         void Update()
         {

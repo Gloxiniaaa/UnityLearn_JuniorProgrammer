@@ -17,6 +17,10 @@ namespace Assets.Unit4.Challenge4.Scripts
         {
             controls.Player.Enable();
         }
+        void OnDisable()
+        {
+            controls.Player.Disable();
+        }
 
         // Update is called once per frame
         void Update()

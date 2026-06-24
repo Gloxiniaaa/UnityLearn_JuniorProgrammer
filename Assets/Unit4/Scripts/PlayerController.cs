@@ -26,6 +26,11 @@ namespace Assets.Unit4.Scripts
             _powerupIndicator.gameObject.SetActive(false);
         }
 
+        void OnDisable()
+        {
+            _controls.Player.Disable();
+        }
+
         void Update()
         {
             Vector2 moveInput = _controls.Player.Move.ReadValue<Vector2>();

@@ -12,7 +12,7 @@ public class LoadSceneButton : MonoBehaviour
     {
         _btn = GetComponent<Button>();
     }
-    void Start()
+    void OnEnable()
     {
         _btn.onClick.AddListener(LoadScene);
     }

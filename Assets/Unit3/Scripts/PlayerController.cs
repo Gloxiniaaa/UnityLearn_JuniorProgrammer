@@ -30,6 +30,10 @@ namespace Assets.Unit3.Scripts
             _audioSource = GetComponent<AudioSource>();
             Physics.gravity *= _gravityModifer;
         }
+        void OnDestroy()
+        {
+            Physics.gravity = new Vector3(0, -9.81f, 0);
+        }
 
         void Update()
         {
